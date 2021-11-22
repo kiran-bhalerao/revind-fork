@@ -6,127 +6,127 @@ import { useStyleConfig } from "../../hooks/useStyleConfig";
 import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
 import { uid } from "../../utils/uid";
 import { InputLabel as CheckboxLabel, InputLabelProps } from "../Input/InputLabel";
+import { Text } from "../Text/Text";
 
 export type CheckboxLabelProps = Omit<InputLabelProps, "variant" | "inputVariant"> & {
-    variant: "top" | "left";
+  variant: "top" | "left";
 };
 
 export type ReactRevindCheckboxOptions = CheckboxOptions<HTMLRevindProps<"div">, CheckboxLabelProps, CheckedIconProps>;
 
 export type CheckboxProps = Omit<HTMLRevindProps<"input">, "size"> &
-    ReactRevindCheckboxOptions;
+  ReactRevindCheckboxOptions;
 
 export const Checkbox = forwardRef<CheckboxProps, "input">(function Checkbox(
-    {
-        checked = false,
-        scheme = "primary",
-        size = "md",
-        label,
-        value,
-        "label-props": labelProps = { variant: "left" },
-        "wrapper-props": wrapperProps,
-        "icon-props": iconProps,
-        className = "",
-        styleObj,
-        id,
-        ...props
-    },
-    ref,
+  {
+    checked = false,
+    scheme = "primary",
+    size = "md",
+    label,
+    value,
+    "label-props": labelProps = { variant: "left" },
+    "wrapper-props": wrapperProps,
+    "icon-props": iconProps,
+    className = "",
+    styleObj,
+    id,
+    ...props
+  },
+  ref,
 ) {
-    const {
-        default: { start, end },
-        sub: { wrapper, icon, label: labelStyle },
-    } = useStyleConfig("Checkbox", styleObj);
+  const {
+    default: { start, end },
+    sub: { wrapper, icon, label: labelStyle },
+  } = useStyleConfig("Checkbox", styleObj);
 
-    const stateKeys = checked ? "checked" : "default";
+  const stateKeys = checked ? "checked" : "default";
 
-    useEffect(() => {
-        if (["material-static", "material-floating"].includes(labelProps.variant)) {
-            throw new TypeError(
-                "[revind]: can't use `material-floating`/`material-static` for `CheckboxLabel`",
-            );
-        }
-    }, [labelProps.variant]);
+  useEffect(() => {
+    if (["material-static", "material-floating"].includes(labelProps.variant)) {
+      throw new TypeError(
+        "[revind]: can't use `material-floating`/`material-static` for `CheckboxLabel`",
+      );
+    }
+  }, [labelProps.variant]);
 
-    const gid = id ?? uid();
+  const gid = id ?? uid();
 
-    return (
-        <div
-            className={clsx(
-                wrapper.default.start,
-                wrapper.wrapperInputLabelVariant[labelProps.variant],
-                wrapper.default.end,
-            )}
-            {...wrapperProps}
-        >
-            <input
-                id={gid}
-                checked={checked}
-                className={clsx(start, end, className)}
-                type="checkbox"
-                ref={ref}
-                value={value}
-                {...props}
-            />
-            <CheckIcon
-                checked={checked}
-                className={clsx(
-                    icon.default.start,
-                    icon.schemes[scheme],
-                    icon.sizes[size],
-                    icon.logical.states[stateKeys],
-                    icon.schemeState[scheme][stateKeys],
-                    icon.default.end,
-                )}
-                {...iconProps}
-            />
-            {label && (
-                <CheckboxLabel
-                    htmlFor={gid}
-                    {...labelProps}
-                    styleObj={{
-                        ...labelStyle,
-                        ...labelProps.styleObj,
-                    }}
-                    inputVariant="filled"
-                >
-                    {label}
-                </CheckboxLabel>
-            )}
-        </div>
-    );
+  return (
+    <div
+      className={clsx(
+        wrapper.default.start,
+        wrapper.wrapperInputLabelVariant[labelProps.variant],
+        wrapper.default.end,
+      )}
+      {...wrapperProps}
+    >
+      <input
+        id={gid}
+        checked={checked}
+        className={clsx(start, end, className)}
+        type="checkbox"
+        ref={ref}
+        value={value}
+        {...props}
+      />
+
+      <CheckboxLabel
+        htmlFor={gid}
+        {...labelProps}
+        styleObj={{
+          ...labelStyle,
+          ...labelProps.styleObj,
+        }}
+        inputVariant="filled"
+      >
+        <CheckIcon
+          checked={checked}
+          className={clsx(
+            icon.default.start,
+            icon.schemes[scheme],
+            icon.sizes[size],
+            icon.logical.states[stateKeys],
+            icon.schemeState[scheme][stateKeys],
+            icon.default.end,
+          )}
+          {...iconProps}
+        />
+        <Text>{label}</Text>
+      </CheckboxLabel>
+    </div>
+  );
 });
 
 interface CheckedIconProps extends SVGProps<SVGSVGElement> {
-    checked: boolean;
+  checked: boolean;
 }
 
 function CheckIcon({ checked, ...props }: CheckedIconProps): ReactElement {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            {...props}
-        >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={checked ? 2 : 0}
-                d="M5 13l4 4L19 7"
-            />
-        </svg>
-    );
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={checked ? 2 : 0}
+        d="M5 13l4 4L19 7"
+      />
+    </svg>
+  );
 }
 
 Checkbox.propTypes = {
-    ...Checkbox.propTypes,
-    checked: PropTypes.bool,
-    scheme: PropTypes.oneOf(["primary", "secondary", "red", "green", "yellow"]),
-    "wrapper-props": PropTypes.object,
-    size: PropTypes.oneOf(["sm", "md", "lg", "xl", "2xl"]),
-    value: PropTypes.any,
-    label: PropTypes.string,
-    "label-props": PropTypes.object,
+  ...Checkbox.propTypes,
+  checked: PropTypes.bool,
+  scheme: PropTypes.oneOf(["primary", "secondary", "red", "green", "yellow"]),
+  "wrapper-props": PropTypes.object,
+  size: PropTypes.oneOf(["sm", "md", "lg", "xl", "2xl"]),
+  value: PropTypes.any,
+  label: PropTypes.string,
+  "label-props": PropTypes.object,
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { Meta } from "@storybook/react";
 
 import { Container, ContainerProps } from "./Container";
+import { Text } from "../Text/Text";
 
 export default {
     title: "Components/Container",
@@ -26,7 +27,7 @@ export default {
 } as Meta;
 
 const content = (
-    <div>
+    <Text>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nam reiciendis,
         voluptates reprehenderit facilis fugit molestias quibusdam, possimus libero quidem
         distinctio similique harum, delectus obcaecati omnis ullam. Veritatis et iure
@@ -37,7 +38,7 @@ const content = (
         eveniet accusantium. Possimus reprehenderit deleniti voluptatum modi, libero
         magnam officiis vitae nam ex perspiciatis aliquam ipsam laborum assumenda
         molestiae in aut! Odit accusamus fugit deleniti consectetur excepturi?
-    </div>
+    </Text>
 );
 
 const Template = (props: ContainerProps) => <Container {...props} border="xl">{content}</Container>;

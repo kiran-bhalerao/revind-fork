@@ -23,7 +23,7 @@ export default {
 } as Meta;
 
 const Template = (props: CheckboxProps) => {
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(true);
     return (
         <Checkbox
             {...props}

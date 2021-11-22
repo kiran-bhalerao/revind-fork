@@ -48,7 +48,13 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
         styleObjects: {
             Input: {
                 default: { start, end },
-                conditionals: { "full-width": fullWidth, margin },
+                conditionals: {
+                    "full-width": fullWidth,
+                    margin,
+                    leftAddon,
+                    rightAddon,
+                    allAddon,
+                },
                 schemes,
                 sizes,
                 variants,
@@ -66,62 +72,68 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
     }
 
     return (
-        <div
-            className={clsx(
-                wrapper.default.start,
-                wrapper.wrapperInputVariant[variant],
-                wrapper.wrapperInputLabelVariant[
-                    labelProps?.variant ?? "material-floating"
-                ],
-                { [wrapper.conditionals["full-width"]]: isFullWidth, [margin]: isMargin },
-                wrapper.schemes[scheme],
-                wrapper.default.end,
-            )}
-            {...wrapperProps}
-        >
+        <div className={clsx({ [margin]: isMargin }, "flex")}>
             {leftAddons}
-            <Component
-                id={gid}
+            <div
                 className={clsx(
-                    start,
+                    wrapper.default.start,
+                    wrapper.wrapperInputVariant[variant],
+                    wrapper.wrapperInputLabelVariant[
+                        labelProps?.variant ?? "material-floating"
+                    ],
                     {
-                        [fullWidth]: isFullWidth,
-                        [variantInputLabelVariant[variant][
-                            labelProps?.variant ?? "material-floating"
-                        ] ?? ""]: !!label,
+                        [wrapper.conditionals["full-width"]]: isFullWidth,
                     },
-                    sizes[size],
-                    schemes[scheme],
-                    variants[variant],
-                    variantSchemes[variant]?.[scheme],
-                    variantSizes[variant]?.[size],
-
-                    end,
-                    className,
+                    wrapper.schemes[scheme],
+                    wrapper.default.end,
                 )}
-                {...props}
-                placeholder={placeholder}
-                ref={ref}
-                onChange={handleChange}
-                type={!showPassword ? type : "text"}
-            />
-            {rightAddons}
-            {label && (
-                <InputLabel
-                    aria-required={props.required}
-                    inputVariant={variant}
-                    htmlFor={gid}
-                    {...labelProps}
-                >
-                    {label}
-                </InputLabel>
-            )}
-            {type === "password" && containsText && (
-                <ShowHidePasswordButton
-                    toggle={() => setShowPassword(!showPassword)}
-                    active={showPassword}
+                {...wrapperProps}
+            >
+                <Component
+                    id={gid}
+                    className={clsx(
+                        start,
+                        {
+                            [fullWidth]: isFullWidth,
+                            [variantInputLabelVariant[variant][
+                                labelProps?.variant ?? "material-floating"
+                            ] ?? ""]: !!label,
+                            [leftAddon]: !!leftAddons,
+                            [rightAddon]: !!rightAddons,
+                            [allAddon]: !!leftAddons && !!rightAddons,
+                        },
+                        sizes[size],
+                        schemes[scheme],
+                        variants[variant],
+                        variantSchemes[variant]?.[scheme],
+                        variantSizes[variant]?.[size],
+                        end,
+                        className,
+                    )}
+                    {...props}
+                    placeholder={placeholder}
+                    ref={ref}
+                    onChange={handleChange}
+                    type={!showPassword ? type : "text"}
                 />
-            )}
+                {label && (
+                    <InputLabel
+                        aria-required={props.required}
+                        inputVariant={variant}
+                        htmlFor={gid}
+                        {...labelProps}
+                    >
+                        {label}
+                    </InputLabel>
+                )}
+                {type === "password" && containsText && (
+                    <ShowHidePasswordButton
+                        toggle={() => setShowPassword(!showPassword)}
+                        active={showPassword}
+                    />
+                )}
+            </div>
+            {rightAddons}
         </div>
     );
 });

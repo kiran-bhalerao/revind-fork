@@ -3,6 +3,7 @@ import React from "react";
 import { Meta } from "@storybook/react";
 
 import { Flex, FlexProps } from "./Flex";
+import { Text } from "../Text/Text";
 
 export default {
     title: "Components/Flex",
@@ -35,9 +36,9 @@ export default {
 } as Meta;
 
 const content = (
-    <div className="border border-solid border-black max-w-[100px]">
+    <Text className="border border-solid border-black max-w-[100px]">
         {"Lorem x shakalaka boom".repeat(10)}
-    </div>
+    </Text>
 );
 
 const Template = (props: FlexProps) => (

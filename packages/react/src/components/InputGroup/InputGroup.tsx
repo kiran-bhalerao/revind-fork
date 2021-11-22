@@ -9,6 +9,7 @@ import { InputAddonProps } from "../Input/InputAddon";
 
 export type InputGroupProps = HTMLRevindProps<"div"> & InputGroupOptions;
 
+/**@deprecated */
 export const InputGroup = forwardRef<InputGroupProps, "div">(function InputGroup(
     {
         variant = "outlined",
