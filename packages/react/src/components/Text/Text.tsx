@@ -1,10 +1,9 @@
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
-import { useTheme } from "../../hooks/useTheme";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { TextOptions } from "@revind/types";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
+import { useStyleConfig } from "hooks/useStyleConfig";
 
 export type TextElement = "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export type TextProps = HTMLRevindProps<TextElement> & TextOptions;

@@ -1,9 +1,9 @@
 import * as PropTypes from "prop-types";
 import React, { ReactNode } from "react";
 import clsx from "clsx";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { ButtonOptions } from "@revind/types";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
+import { useStyleConfig } from "hooks/useStyleConfig";
 
 export type ReactRevindButtonOptions = ButtonOptions<ReactNode>;
 

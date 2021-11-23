@@ -7,8 +7,8 @@ import React, {
     useState,
 } from "react";
 import PropTypes from "prop-types";
-import { Input, ReactRevindInputOptions } from "../Input/Input";
-import { HTMLRevindProps } from "../../utils/forward-ref";
+import { Input, ReactRevindInputOptions } from "components/Input/Input";
+import { HTMLRevindProps } from "utils/forward-ref";
 
 /**
  * This component is heavily under development. It has many bugs

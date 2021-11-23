@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { ThemeContext } from "../context/theme-provider";
-import { mergeExtendStyleObj } from "../utils/mergeExtendStyleObj";
+import { ThemeContext } from "context/theme-provider";
+import { mergeExtendStyleObj } from "utils/mergeExtendStyleObj";
 import { useTheme } from "./useTheme";
 
 export type ThemeKeys = keyof ThemeContext["styleObjects"];

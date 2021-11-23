@@ -3,7 +3,11 @@
     "version": "0.0.1",
     "description": "Open source Tailwind UI components to bootstrap your new apps, projects or landing websites!",
     "workspaces": [
-        "packages/**"
+        "packages/react",
+        "packages/styles",
+        "packages/tailwindcss-preset-revind",
+        "packages/types",
+        "packages/vue"
     ],
     "scripts": {
         "bootstrap": "lerna bootstrap",

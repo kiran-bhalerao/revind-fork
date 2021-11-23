@@ -8,7 +8,7 @@ module.exports = {
     purge: {
         content: [
             "./src/**/*.{ts,tsx,js,jsx}",
-            "../../node_modules/@revind/styles/dist/src/**/*.js",
+            "../../node_modules/@revind/styles/dist/**/*.js",
         ],
     },
     darkMode: "class",

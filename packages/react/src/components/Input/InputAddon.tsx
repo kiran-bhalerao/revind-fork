@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React from "react";
-import { InputAddonOptions } from "../../../../types";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
-import { ComponentIds } from "../../utils/component-ids";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
+import { InputAddonOptions } from "@revind/types";
+import { useStyleConfig } from "hooks/useStyleConfig";
+import { ComponentIds } from "utils/component-ids";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 
 export type InputAddonProps = HTMLRevindProps<"div"> & InputAddonOptions;
 

@@ -1,27 +1,37 @@
+export type FlexDirection = "column" | "row" | "row-reverse" | "column-reverse";
+
+export type FlexWrap = "wrap" | "no-wrap" | "wrap-reverse";
+
+export type FlexJustifyContent = "center" | "start" | "end" | "between" | "around" | "evenly";
+
+export type FlexAlignContents = "center" | "start" | "end" | "between" | "around" | "evenly";
+
+export type FlexAlignItems = "center" | "start" | "end" | "stretch" | "baseline";
+
 export interface FlexOptions {
     /**
      * set the direction of the `Flex` container
      * @default row
      */
-    direction?: "column" | "row" | "row-reverse" | "column-reverse";
+    direction?: FlexDirection;
     /**
      * wraps the content to new line if set to wrap='wrap' or vice versa
      * if not. wrap-reverse will wrap the content from the opposite site
      * @default no-wrap
      */
-    wrap?: "wrap" | "no-wrap" | "wrap-reverse";
+    wrap?: FlexWrap;
     /**
      * css `justify-content`
      */
-    justifyContent?: "center" | "start" | "end" | "between" | "around" | "evenly";
+    justifyContent?: FlexJustifyContent;
     /**
      * css `align-content`
      */
-    alignContent?: "center" | "start" | "end" | "between" | "around" | "evenly";
+    alignContent?: FlexAlignContents;
     /**
      * css `align-items`
      */
-    alignItems?: "center" | "start" | "end" | "stretch" | "baseline";
+    alignItems?: FlexAlignItems;
     /**
      * uses `inline-flex` instead of `flex` as display for `Flex`
      * @default false

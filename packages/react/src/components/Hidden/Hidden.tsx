@@ -2,9 +2,8 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 import { HiddenOptions } from "@revind/types";
-import { useTheme } from "../../hooks/useTheme";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
+import { useStyleConfig } from "hooks/useStyleConfig";
 
 export type HiddenProps = HTMLRevindProps<"div"> & HiddenOptions;
 

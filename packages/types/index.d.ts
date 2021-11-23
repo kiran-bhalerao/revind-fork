@@ -9,3 +9,4 @@ export * from "./lib/input";
 export * from "./lib/input-label";
 export * from "./lib/input-addon";
 export * from "./lib/input-group";
+export * from "./lib/stack"

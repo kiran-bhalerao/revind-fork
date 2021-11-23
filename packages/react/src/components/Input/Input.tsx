@@ -2,12 +2,12 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { ChangeEvent, ReactElement, useMemo, useState } from "react";
 import { InputOptions } from "@revind/types";
-import { useTheme } from "../../hooks/useTheme";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
-import { uid } from "../../utils/uid";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
+import { uid } from "utils/uid";
 import { InputLabel, InputLabelProps } from "./InputLabel";
-import { ComponentIds } from "../../utils/component-ids";
+import { ComponentIds } from "utils/component-ids";
 import { InputAddonProps } from "./InputAddon";
+import { useStyleConfig } from "hooks/useStyleConfig";
 
 export type ReactRevindInputOptions = InputOptions<
     HTMLRevindProps<"div">,
@@ -34,6 +34,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
         "right-addons": rightAddons,
         id,
         onChange,
+        styleObj,
         as: Component = "input",
         ...props
     },
@@ -45,26 +46,22 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
     const gid = useMemo(() => id ?? uid(), [id]);
 
     const {
-        styleObjects: {
-            Input: {
-                default: { start, end },
-                conditionals: {
-                    "full-width": fullWidth,
-                    margin,
-                    leftAddon,
-                    rightAddon,
-                    allAddon,
-                },
-                schemes,
-                sizes,
-                variants,
-                variantInputLabelVariant,
-                variantSchemes,
-                variantSizes,
-                sub: { wrapper },
-            },
+        default: { start, end },
+        conditionals: {
+            "full-width": fullWidth,
+            margin,
+            leftAddon,
+            rightAddon,
+            allAddon,
         },
-    } = useTheme();
+        schemes,
+        sizes,
+        variants,
+        variantInputLabelVariant,
+        variantSchemes,
+        variantSizes,
+        sub: { wrapper },
+    } = useStyleConfig("Input", styleObj);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         onChange?.(e);

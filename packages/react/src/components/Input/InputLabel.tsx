@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HTMLRevindProps, forwardRef } from "../../utils/forward-ref";
+import { HTMLRevindProps, forwardRef } from "utils/forward-ref";
 import clsx from "clsx";
 import { InputLabelOptions } from "@revind/types";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
-import { ComponentIds } from "../../utils/component-ids";
+import { useStyleConfig } from "hooks/useStyleConfig";
+import { ComponentIds } from "utils/component-ids";
 export type InputLabelProps = HTMLRevindProps<"label"> & InputLabelOptions;
 
 const InputLabel = forwardRef<InputLabelProps, "label">(function InputLabel(

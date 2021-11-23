@@ -3,9 +3,9 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { ReactNode } from "react";
 import { isFragment } from "react-is";
-import { Flex } from "../../components/Flex/Flex";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
+import { Flex } from "components/Flex/Flex";
+import { useStyleConfig } from "hooks/useStyleConfig";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 
 export type ReactRevindButtonGroupOptions = ButtonGroupOptions<ReactNode>;
 

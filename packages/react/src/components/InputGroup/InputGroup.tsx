@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ComponentIds } from "../../utils/component-ids";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
-import { useValidateChildren } from "../../hooks/useValidateChildren";
-import { InputGroupOptions } from "../../../../types";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
+import { ComponentIds } from "utils/component-ids";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
+import { useValidateChildren } from "hooks/useValidateChildren";
+import { InputGroupOptions } from "@revind/types";
+import { useStyleConfig } from "hooks/useStyleConfig";
 import clsx from "clsx";
-import { InputAddonProps } from "../Input/InputAddon";
+import { InputAddonProps } from "components/Input/InputAddon";
 
 export type InputGroupProps = HTMLRevindProps<"div"> & InputGroupOptions;
 

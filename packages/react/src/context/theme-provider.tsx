@@ -11,6 +11,7 @@ import {
     inputLabelStyleObj,
     inputAddonStyleObj,
     inputGroupStyleObj,
+    stackStyleObj,
 } from "@revind/styles";
 import {
     ButtonGroupStyleObj,
@@ -31,13 +32,15 @@ import {
     InputAddonOptions,
     InputGroupStyleObj,
     InputGroupOptions,
+    StackStyleObj,
+    StackOptions,
 } from "@revind/types";
-import { ReactRevindButtonOptions } from "../components/Button/Button";
+import { ReactRevindButtonOptions } from "components/Button/Button";
 import {
     ReactRevindButtonGroupOptions,
     ReactRevindInputOptions,
     ReactRevindCheckboxOptions,
-} from "../main";
+} from "main";
 
 export interface ThemeContext {
     styleObjects: {
@@ -52,6 +55,7 @@ export interface ThemeContext {
         InputGroup: InputGroupStyleObj;
         InputLabel: InputLabelStyleObj;
         Text: TextStyleObj;
+        Stack: StackStyleObj;
     };
     props: {
         Button?: ReactRevindButtonOptions;
@@ -65,6 +69,7 @@ export interface ThemeContext {
         InputGroup?: InputGroupOptions;
         InputLabel?: InputLabelOptions;
         Text?: TextOptions;
+        Stack?: StackOptions<React.ReactElement>;
     };
 }
 
@@ -81,6 +86,7 @@ export const defaultTheme: ThemeContext = {
         InputLabel: inputLabelStyleObj,
         InputGroup: inputGroupStyleObj,
         Text: textStyleObj,
+        Stack: stackStyleObj,
     },
     props: {},
 };

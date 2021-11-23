@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
 import clsx from "clsx";
-import { useTheme } from "../../hooks/useTheme";
-import { forwardRef, HTMLRevindProps } from "../../utils/forward-ref";
+import { useTheme } from "hooks/useTheme";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { FlexOptions } from "@revind/types";
-import { useStyleConfig } from "../../hooks/useStyleConfig";
+import { useStyleConfig } from "hooks/useStyleConfig";
 
 export type FlexProps = HTMLRevindProps<"div"> & FlexOptions;
 
