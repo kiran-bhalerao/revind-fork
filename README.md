@@ -1,3 +1,5 @@
+![Revind Logo](/assets/revind-logo.png)
+
 <h1><p align="center">Revind</p></h1>
 <p align="center">tailwindcss but the logic is covered</p>
 
@@ -54,7 +56,9 @@ Any kind contribution related to this project & following all the instructions/r
 Currently this projects needs your support. We need some **reactjs, vuejs, sveltejs** developers who can willingly contribute to this Open-Source project
 
 ## Running locally
+
 Make sure you have `nodejs@^12` & `npm@^7` installed. Then git clone the repository & in the project root directory run:
+
 ```bash
 $ npm install
 ```
@@ -62,13 +66,13 @@ $ npm install
 To run the React project:
 
 ```bash
-$ cd ./packages/react/ && npm start 
+$ cd ./packages/react/ && npm start
 ```
 
 To run the Vue project:
 
 ```bash
-$ cd ./packages/vue/ && npm start 
+$ cd ./packages/vue/ && npm start
 ```
 
 This will start the storybook dev-server & will show the link where it got served
