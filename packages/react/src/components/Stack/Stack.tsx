@@ -35,6 +35,7 @@ export const Stack = forwardRef<StackProps, "div">(function Stack(
                     [conditionals.inline]: isInline,
                 },
                 styles.default.end,
+                className,
             ),
         [styles, conditionals.inline, direction, justify, items, wrap, isInline],
     );

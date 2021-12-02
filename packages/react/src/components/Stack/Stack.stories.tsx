@@ -10,7 +10,7 @@ export default {
 } as Meta<StackProps>;
 
 export const Vertical = () => (
-    <Stack spacing="4">
+    <Stack className="space-x-2">
         <span>ooooooo</span>
         <span>ahhhhh</span>
         <span>Woah!</span>
@@ -30,7 +30,7 @@ function Feature({ title, children, ...rest }: any) {
 }
 
 export const WithContent = () => (
-    <Stack direction="row" spacing="8">
+    <Stack direction="row" className="space-x-8">
         <Feature
             title="Plan Money"
             children="The future can be even brighter but a goal without a plan is just a wish"

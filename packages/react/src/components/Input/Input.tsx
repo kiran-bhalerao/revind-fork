@@ -32,6 +32,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
         placeholder = " ",
         "left-addons": leftAddons,
         "right-addons": rightAddons,
+        element,
         id,
         onChange,
         styleObj,
@@ -61,6 +62,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
         variantSchemes,
         variantSizes,
         sub: { wrapper },
+        elementSizes,
     } = useStyleConfig("Input", styleObj);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -98,6 +100,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
                             [leftAddon]: !!leftAddons,
                             [rightAddon]: !!rightAddons,
                             [allAddon]: !!leftAddons && !!rightAddons,
+                            [elementSizes[size]]: !!element,
                         },
                         sizes[size],
                         schemes[scheme],
@@ -129,6 +132,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
                         active={showPassword}
                     />
                 )}
+                {type !== "password" && element}
             </div>
             {rightAddons}
         </div>
@@ -227,4 +231,7 @@ Input.propTypes = {
     label: PropTypes.string,
     "wrapper-ref": PropTypes.oneOfType<any>([PropTypes.func, PropTypes.object]),
     "label-props": PropTypes.object,
+    "left-addon": PropTypes.element,
+    "right-addon": PropTypes.element,
+    element: PropTypes.element,
 };

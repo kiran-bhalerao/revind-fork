@@ -8,5 +8,6 @@ export * from "./text";
 export * from "./input";
 export * from "./input-label";
 export * from "./input-addon";
+export * from "./input-element";
 export * from "./input-group";
 export * from "./stack";

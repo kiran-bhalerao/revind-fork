@@ -6,5 +6,8 @@ export * from "./components/Flex/Flex";
 export * from "./components/Grid/Grid";
 export * from "./components/Hidden/Hidden";
 export * from "./components/Text/Text";
-export * from "./components/Input/Input"
-export * from "./components/Input/InputLabel"
+export * from "./components/Input/Input";
+export * from "./components/Input/InputLabel";
+export * from "./components/Input/InputElement";
+export * from "./components/Input/InputAddon";
+export * from "./components/Stack/Stack";

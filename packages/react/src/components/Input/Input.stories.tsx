@@ -1,11 +1,10 @@
 import React from "react";
-
 import { Meta } from "@storybook/react";
-
 import { Input, InputProps } from "./Input";
 import { InputAddon, InputAddonProps } from "./InputAddon";
 import { Flex } from "../Flex/Flex";
 import { Text } from "../Text/Text";
+import { InputElement } from "./InputElement";
 
 export default {
     title: "Components/Input",
@@ -145,4 +144,11 @@ export const WithBothAddon = Template.bind({});
             Add
         </InputAddon>
     ),
+};
+
+export const WithElement = Template.bind({});
+
+(WithElement as any).args = {
+    ...defaultArgs,
+    element: <InputElement>&times;</InputElement>,
 };
