@@ -12,7 +12,10 @@
     "scripts": {
         "bootstrap": "lerna bootstrap",
         "lint": "npx eslint src/**/*.{jsx,vue,js}",
-        "new:component": "node scripts/component-gen.js"
+        "new:component": "node scripts/component-gen.js",
+        "react": "npm -w packages/react run --",
+        "vue": "npm -w packages/vue run --",
+        "styles": "npm -w packages/styles run --"
     },
     "repository": "git+https://github.com/FotieMConstant/revind.git",
     "engines": {

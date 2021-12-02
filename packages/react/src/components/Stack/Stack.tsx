@@ -42,17 +42,16 @@ export const Stack = forwardRef<StackProps, "div">(function Stack(
     return <div ref={ref} className={classes} {...props} />;
 });
 
-
 /**
  * A view that arranges its children in a horizontal line.
  */
 export const HStack = forwardRef<StackProps, "div">((props, ref) => (
-  <Stack items="center" {...props} direction="row" ref={ref} />
-))
+    <Stack items="center" {...props} direction="row" ref={ref} />
+));
 
 /**
  * A view that arranges its children in a vertical line.
  */
 export const VStack = forwardRef<StackProps, "div">((props, ref) => (
-  <Stack items="center" {...props} direction="column" ref={ref} />
-))
+    <Stack items="center" {...props} direction="column" ref={ref} />
+));
