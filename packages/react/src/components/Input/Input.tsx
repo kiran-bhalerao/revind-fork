@@ -8,6 +8,9 @@ import { InputLabel, InputLabelProps } from "./InputLabel";
 import { ComponentIds } from "utils/component-ids";
 import { InputAddonProps } from "./InputAddon";
 import { useStyleConfig } from "hooks/useStyleConfig";
+import { Text } from "components/Text/Text";
+import { Flex } from "components/Flex/Flex";
+import { useClasses } from "hooks/useClasses";
 
 export type ReactRevindInputOptions = InputOptions<
     HTMLRevindProps<"div">,
@@ -35,6 +38,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
         element,
         id,
         onChange,
+        error = false,
         styleObj,
         as: Component = "input",
         ...props
@@ -54,6 +58,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
             leftAddon,
             rightAddon,
             allAddon,
+            error: errorStyle,
         },
         schemes,
         sizes,
@@ -61,7 +66,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
         variantInputLabelVariant,
         variantSchemes,
         variantSizes,
-        sub: { wrapper },
+        sub: { wrapper, errorText },
         elementSizes,
     } = useStyleConfig("Input", styleObj);
 
@@ -70,62 +75,81 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
         setContainsText(!!e.target.value);
     }
 
+    const classes = useClasses(
+        start,
+        !error && [schemes[scheme], variantSchemes[variant]?.[scheme]],
+        sizes[size],
+        variants[variant],
+        variantSizes[variant]?.[size],
+        {
+            [fullWidth]: isFullWidth,
+            [variantInputLabelVariant[variant][
+                labelProps?.variant ?? "material-floating"
+            ] ?? ""]: !!label,
+            [leftAddon]: !!leftAddons,
+            [rightAddon]: !!rightAddons,
+            [allAddon]: !!leftAddons && !!rightAddons,
+            [elementSizes[size]]: !!element,
+            [errorStyle]: !!error,
+        },
+        end,
+        className,
+    );
+
+    const wrapperClasses = useClasses(
+        wrapper.default.start,
+        wrapper.wrapperInputVariant[variant],
+        {
+            [wrapper.conditionals["full-width"]]: isFullWidth,
+        },
+        error ? wrapper.conditionals.error : wrapper.schemes[scheme],
+        wrapper.default.end,
+    );
+
     return (
-        <div className={clsx({ [margin]: isMargin }, "flex")}>
+        <Flex className={clsx({ [margin]: isMargin })}>
             {leftAddons}
-            <div
-                className={clsx(
-                    wrapper.default.start,
-                    wrapper.wrapperInputVariant[variant],
-                    wrapper.wrapperInputLabelVariant[
-                        labelProps?.variant ?? "material-floating"
-                    ],
-                    {
-                        [wrapper.conditionals["full-width"]]: isFullWidth,
-                    },
-                    wrapper.schemes[scheme],
-                    wrapper.default.end,
-                )}
-                {...wrapperProps}
-            >
-                <Component
-                    id={gid}
+            <div className={wrapperClasses} {...wrapperProps}>
+                <div
                     className={clsx(
-                        start,
-                        {
-                            [fullWidth]: isFullWidth,
-                            [variantInputLabelVariant[variant][
-                                labelProps?.variant ?? "material-floating"
-                            ] ?? ""]: !!label,
-                            [leftAddon]: !!leftAddons,
-                            [rightAddon]: !!rightAddons,
-                            [allAddon]: !!leftAddons && !!rightAddons,
-                            [elementSizes[size]]: !!element,
-                        },
-                        sizes[size],
-                        schemes[scheme],
-                        variants[variant],
-                        variantSchemes[variant]?.[scheme],
-                        variantSizes[variant]?.[size],
-                        end,
-                        className,
+                        wrapper.wrapperInputLabelVariant[
+                            labelProps?.variant ?? "material-floating"
+                        ],
+                        "relative",
                     )}
-                    {...props}
-                    placeholder={placeholder}
-                    ref={ref}
-                    onChange={handleChange}
-                    type={!showPassword ? type : "text"}
-                />
-                {label && (
-                    <InputLabel
-                        aria-required={props.required}
-                        inputVariant={variant}
-                        htmlFor={gid}
-                        {...labelProps}
-                    >
-                        {label}
-                    </InputLabel>
-                )}
+                >
+                    <Component
+                        id={gid}
+                        className={classes}
+                        {...props}
+                        placeholder={placeholder}
+                        ref={ref}
+                        onChange={handleChange}
+                        type={!showPassword ? type : "text"}
+                    />
+                    {error && (
+                        <Text
+                            className={clsx(
+                                errorText.default.start,
+                                errorText.default.end,
+                            )}
+                            scheme="red"
+                            variant="sub2"
+                        >
+                            {error}
+                        </Text>
+                    )}
+                    {label && (
+                        <InputLabel
+                            aria-required={props.required}
+                            inputVariant={variant}
+                            htmlFor={gid}
+                            {...labelProps}
+                        >
+                            {label}
+                        </InputLabel>
+                    )}
+                </div>
                 {type === "password" && containsText && (
                     <ShowHidePasswordButton
                         toggle={() => setShowPassword(!showPassword)}
@@ -135,7 +159,7 @@ export const Input = forwardRef<InputProps, "input">(function TextField(
                 {type !== "password" && element}
             </div>
             {rightAddons}
-        </div>
+        </Flex>
     );
 });
 
@@ -234,4 +258,5 @@ Input.propTypes = {
     "left-addon": PropTypes.element,
     "right-addon": PropTypes.element,
     element: PropTypes.element,
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 };

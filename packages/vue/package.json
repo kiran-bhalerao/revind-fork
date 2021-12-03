@@ -6,10 +6,10 @@
         "build": "build-storybook"
     },
     "peerDependencies": {
-        "@revind/tailwindcss-preset-revind": "^0.0.1",
         "@revind/styles": "^0.0.1",
-        "vue": "^3.0.5",
-        "tailwindcss": "^2.2.4"
+        "@revind/tailwindcss-preset-revind": "^0.0.1",
+        "tailwindcss": "^2.2.4",
+        "vue": "^3.0.5"
     },
     "peerDependenciesMeta": {
         "@revind/styles": {
@@ -20,23 +20,24 @@
         "@revind/types": "^0.0.1"
     },
     "devDependencies": {
-        "autoprefixer": "^10.2.6",
         "@babel/core": "^7.14.6",
-        "@storybook/addon-actions": "^6.3.4",
-        "@storybook/addon-essentials": "^6.3.4",
-        "@storybook/addon-links": "^6.3.4",
+        "@storybook/addon-actions": "^6.4.5",
+        "@storybook/addon-essentials": "^6.4.5",
+        "@storybook/addon-links": "^6.4.5",
         "@storybook/addon-postcss": "^2.0.0",
-        "@storybook/vue3": "^6.3.4",
-        "@vitejs/plugin-vue": "^1.2.4",
-        "@vue/compiler-sfc": "^3.0.5",
+        "@storybook/vue3": "^6.4.5",
+        "@vitejs/plugin-vue": "^1.10.1",
+        "@vue/compiler-sfc": "^3.2.23",
+        "autoprefixer": "^10.2.6",
         "babel-loader": "^8.2.2",
-        "storybook-builder-vite": "^0.0.12",
         "postcss": "^8.3.5",
+        "storybook-builder-vite": "^0.1.10",
         "typescript": "^4.3.2",
-        "vite-plugin-ts-checker": "^0.1.3",
-        "vite": "^2.4.4",
-        "vue-loader": "^16.3.0",
-        "vue-tsc": "^0.0.24"
+        "vite": "^2.6.14",
+        "vite-plugin-ts-checker": "^0.1.5",
+        "vue-loader": "^15.9.8",
+        "vue-tsc": "^0.0.24",
+        "vue-tsx": "^1.0.13"
     },
     "description": "highly configurable vuejs (vue3) component library based on tailwindcss",
     "keywords": [

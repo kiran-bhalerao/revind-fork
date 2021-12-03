@@ -34,20 +34,24 @@ export interface InputOptions<W, L, A> {
     label?: string;
     "label-props"?: L;
     "wrapper-props"?: W;
+    error?: false | string;
     styleObj?: InputStyleObj;
 }
 
 export interface InputSubComponents {
     wrapper: Pick<BaseStyleObj, "default" | "schemes"> &
-        Conditionals<"full-width"> & {
+        Conditionals<"full-width" | "error"> & {
             wrapperInputLabelVariant: InputLabelVariants;
             wrapperInputVariant: Variants;
         };
+    errorText: Pick<BaseStyleObj, "default">;
 }
 
 export type InputStyleObj = BaseStyleObj & {
     variantInputLabelVariant: VariantJunctions<InputLabelVariants>;
-} & Conditionals<"full-width" | "margin" | "leftAddon" | "rightAddon" | "allAddon"> &
+} & Conditionals<
+        "full-width" | "margin" | "leftAddon" | "rightAddon" | "allAddon" | "error"
+    > &
     SubComponents<InputSubComponents> & {
         elementSizes: Record<keyof InputSizes, string>;
     };

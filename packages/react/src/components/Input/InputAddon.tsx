@@ -4,6 +4,7 @@ import { InputAddonOptions } from "@revind/types";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import { ComponentIds } from "utils/component-ids";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
+import { useClasses } from "hooks/useClasses";
 
 export type InputAddonProps = HTMLRevindProps<"div"> & InputAddonOptions;
 
@@ -29,23 +30,19 @@ export const InputAddon = forwardRef<InputAddonProps, "div">(function InputAddon
         variantSizes,
     } = useStyleConfig("InputAddon", styleObj);
 
-    return (
-        <div
-            {...props}
-            className={clsx(
-                start,
-                variants[variant],
-                schemes[scheme],
-                inputVariants[inputVariant],
-                variantInputVariants[variant][inputVariant],
-                sizes[size],
-                variantSchemes[variant]?.[scheme],
-                variantSizes[variant]?.[size],
-                end,
-            )}
-            ref={ref}
-        />
+    const classes = useClasses(
+        start,
+        variants[variant],
+        schemes[scheme],
+        inputVariants[inputVariant],
+        variantInputVariants[variant][inputVariant],
+        sizes[size],
+        variantSchemes[variant]?.[scheme],
+        variantSizes[variant]?.[size],
+        end,
     );
+
+    return <div {...props} className={classes} ref={ref} />;
 });
 
 InputAddon.id = ComponentIds.InputAddon;

@@ -64,6 +64,7 @@ export const inputStyleObj: InputStyleObj = {
             },
             conditionals: {
                 "full-width": "flex w-full",
+                error: "text-red",
             },
             schemes: {
                 primary: "focus-within:text-primary",
@@ -78,6 +79,11 @@ export const inputStyleObj: InputStyleObj = {
             },
             wrapperInputVariant: {},
         },
+        errorText: {
+            default: {
+                start: "absolute -bottom-6 left-1",
+            },
+        },
     },
     conditionals: {
         "full-width": "w-full",
@@ -85,5 +91,6 @@ export const inputStyleObj: InputStyleObj = {
         leftAddon: "rounded-l-none",
         rightAddon: "rounded-r-none",
         allAddon: "rounded-none",
+        error: "border-red dark:border-red-dark",
     },
 };

@@ -71,6 +71,7 @@ const defaultArgs = {
     label: "Input",
     placeholder: "placeholder",
     required: true,
+    error: "",
 };
 
 export const Default = Template.bind({});

@@ -7,7 +7,7 @@ export const textStyleObj: TextStyleObj = {
         h2: "font-light text-6xl leading-tight",
         h3: "font-normal text-5xl leading-tight",
         h4: "font-normal text-3xl leading-tight",
-        h5: "font-norma text-2xl leading-snug",
+        h5: "font-normal text-2xl leading-snug",
         h6: "font-medium text-xl leading-normal",
         body1: "font-normal text-base leading-snug",
         body2: "font-normal text-sm leading-snug",
