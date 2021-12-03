@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { ButtonOptions } from "@revind/types";
 import { useStyleConfig } from "hooks/useStyleConfig";
+import { useClasses } from "hooks/useClasses";
 
 export type ReactRevindButtonOptions = ButtonOptions<ReactNode>;
 
@@ -41,26 +42,24 @@ export const Button = forwardRef<ButtonProps, "button">(function Button(
         variantSizes,
     } = useStyleConfig("Button", styleObj);
 
+    const classes = useClasses(
+        start,
+        variants[variant],
+        sizes[size],
+        schemes[scheme],
+        variantSizes?.[variant]?.[size],
+        variantSchemes?.[variant]?.[scheme],
+        {
+            [margin]: isMargin,
+            [fullWidth]: isFullWidth,
+            [rounded]: isRounded,
+        },
+        end,
+        className,
+    );
+
     return (
-        <Component
-            ref={ref}
-            className={clsx(
-                start,
-                variants[variant],
-                sizes[size],
-                schemes[scheme],
-                variantSizes?.[variant]?.[size],
-                variantSchemes?.[variant]?.[scheme],
-                {
-                    [margin]: isMargin,
-                    [fullWidth]: isFullWidth,
-                    [rounded]: isRounded,
-                },
-                end,
-                className,
-            )}
-            {...props}
-        >
+        <Component ref={ref} className={classes} {...props}>
             <span
                 className={clsx(startIconStyle.default.start, startIconStyle.default.end)}
             >

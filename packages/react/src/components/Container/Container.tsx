@@ -1,9 +1,9 @@
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 import { ContainerOptions } from "@revind/types";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { useStyleConfig } from "hooks/useStyleConfig";
+import { useClasses } from "hooks/useClasses";
 
 export type ContainerProps = HTMLRevindProps<"div"> & ContainerOptions;
 
@@ -42,30 +42,27 @@ export const Container = forwardRef<ContainerProps, "div">(function Container(
         borders,
     } = useStyleConfig("Container", styleObj);
 
+    const classes = useClasses(
+        start,
+        {
+            [fixed]: fixed,
+            [center]: isCenter,
+            [gutters]: isGutters,
+            [rounded]: isRounded,
+        },
+        maxWidth && maxWidths[maxWidth],
+        variants[variant],
+        schemes[scheme],
+        borders[border],
+        elevations[elevation],
+        variantSchemes?.[variant]?.[scheme],
+        variantBorders[variant][border],
+        variantElevations[variant][elevation],
+        end,
+        className,
+    );
     return (
-        <div
-            ref={ref}
-            className={clsx(
-                start,
-                {
-                    [fixed]: fixed,
-                    [center]: isCenter,
-                    [gutters]: isGutters,
-                    [rounded]: isRounded,
-                },
-                maxWidth && maxWidths[maxWidth],
-                variants[variant],
-                schemes[scheme],
-                borders[border],
-                elevations[elevation],
-                variantSchemes?.[variant]?.[scheme],
-                variantBorders[variant][border],
-                variantElevations[variant][elevation],
-                end,
-                className,
-            )}
-            {...props}
-        >
+        <div ref={ref} className={classes} {...props}>
             {children}
         </div>
     );

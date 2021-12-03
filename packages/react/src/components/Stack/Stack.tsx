@@ -1,5 +1,5 @@
 import type { StackOptions } from "@revind/types";
-import clsx from "clsx";
+import { useClasses } from "hooks/useClasses";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import React, { useMemo } from "react";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
@@ -23,21 +23,24 @@ export const Stack = forwardRef<StackProps, "div">(function Stack(
 ) {
     const { conditionals, ...styles } = useStyleConfig("Stack", styleObj);
 
-    const classes = useMemo(
-        () =>
-            clsx(
-                styles.default.start,
-                responsivePropToClass(styles.direction, direction),
-                responsivePropToClass(styles.justifyContent, justify),
-                responsivePropToClass(styles.alignItems, items),
-                responsivePropToClass(styles.wrap, wrap),
-                {
-                    [conditionals.inline]: isInline,
-                },
-                styles.default.end,
-                className,
-            ),
-        [styles, conditionals.inline, direction, justify, items, wrap, isInline],
+    const responsivePropToClasses = useMemo(
+        () => [
+            responsivePropToClass(styles.direction, direction),
+            responsivePropToClass(styles.justifyContent, justify),
+            responsivePropToClass(styles.alignItems, items),
+            responsivePropToClass(styles.wrap, wrap),
+        ],
+        [styles, direction, justify, items, wrap],
+    );
+
+    const classes = useClasses(
+        styles.default.start,
+        responsivePropToClasses,
+        {
+            [conditionals.inline]: isInline,
+        },
+        styles.default.end,
+        className,
     );
 
     return <div ref={ref} className={classes} {...props} />;

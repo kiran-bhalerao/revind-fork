@@ -1,9 +1,9 @@
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { TextOptions } from "@revind/types";
 import { useStyleConfig } from "hooks/useStyleConfig";
+import { useClasses } from "hooks/useClasses";
 
 export type TextElement = "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export type TextProps = HTMLRevindProps<TextElement> & TextOptions;
@@ -46,25 +46,22 @@ export const Text = forwardRef<TextProps, TextElement>(function Text(
         overline: "span",
     }[variant] as any;
 
+    const classes = useClasses(
+        start,
+        variants[variant],
+        schemes[scheme],
+        variantSchemes?.[variant]?.[scheme],
+        alignments[align],
+        {
+            [inline]: isInline,
+            [bottomMargin]: isBottomMargin,
+        },
+        wrap ? wrap : noWrap,
+        end,
+        className,
+    );
     return (
-        <Component
-            ref={ref}
-            className={clsx(
-                start,
-                variants[variant],
-                schemes[scheme],
-                variantSchemes?.[variant]?.[scheme],
-                alignments[align],
-                {
-                    [inline]: isInline,
-                    [bottomMargin]: isBottomMargin,
-                },
-                wrap ? wrap : noWrap,
-                end,
-                className,
-            )}
-            {...props}
-        >
+        <Component ref={ref} className={classes} {...props}>
             {children}
         </Component>
     );

@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
 import React from "react";
-import clsx from "clsx";
-import { useTheme } from "hooks/useTheme";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { FlexOptions } from "@revind/types";
 import { useStyleConfig } from "hooks/useStyleConfig";
+import { useClasses } from "hooks/useClasses";
 
 export type FlexProps = HTMLRevindProps<"div"> & FlexOptions;
 
@@ -38,20 +37,18 @@ export const Flex = forwardRef<FlexProps, "div">(function Flex(
 ) {
     const flexStyleObj = useStyleConfig("Flex", styleObj);
 
+    const classes = useClasses(
+        flexStyleObj.default,
+        { [flexStyleObj.inline]: inline },
+        flexStyleObj.direction[direction],
+        flexStyleObj.wrap[wrap],
+        flexStyleObj.alignItems[alignItems],
+        flexStyleObj.justifyContent[justifyContent],
+        flexStyleObj.alignContent[alignContent],
+        className,
+    );
     return (
-        <div
-            ref={ref}
-            className={clsx(
-                flexStyleObj.default,
-                { [flexStyleObj.inline]: inline },
-                flexStyleObj.direction[direction],
-                flexStyleObj.wrap[wrap],
-                flexStyleObj.alignItems[alignItems],
-                flexStyleObj.justifyContent[justifyContent],
-                flexStyleObj.alignContent[alignContent],
-            )}
-            {...props}
-        >
+        <div ref={ref} className={classes} {...props}>
             {children}
         </div>
     );

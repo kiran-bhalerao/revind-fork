@@ -1,9 +1,9 @@
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 import { HiddenOptions } from "@revind/types";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { useStyleConfig } from "hooks/useStyleConfig";
+import { useClasses } from "hooks/useClasses";
 
 export type HiddenProps = HTMLRevindProps<"div"> & HiddenOptions;
 
@@ -44,23 +44,20 @@ export const Hidden = forwardRef<HiddenProps, "div">(function Hidden(
         [key: string]: keyof typeof statesRaw;
     };
 
+    const classes = useClasses(
+        statesRaw[states.sm],
+        statesRaw[states.md],
+        statesRaw[states.lg],
+        statesRaw[states.xl],
+        statesRaw[states["2xl"]],
+        statesRaw[states.hover],
+        statesRaw[states.active],
+        statesRaw[states.focus],
+        statesRaw[states.all],
+        className,
+    );
     return (
-        <div
-            ref={ref}
-            className={clsx(
-                statesRaw[states.sm],
-                statesRaw[states.md],
-                statesRaw[states.lg],
-                statesRaw[states.xl],
-                statesRaw[states["2xl"]],
-                statesRaw[states.hover],
-                statesRaw[states.active],
-                statesRaw[states.focus],
-                statesRaw[states.all],
-                className,
-            )}
-            {...props}
-        >
+        <div ref={ref} className={classes} {...props}>
             {children}
         </div>
     );

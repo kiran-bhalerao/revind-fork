@@ -10,6 +10,7 @@ import {
     InputLabelProps,
 } from "components/Input/InputLabel";
 import { Text } from "components/Text/Text";
+import { useClasses } from "hooks/useClasses";
 
 export type CheckboxLabelProps = Omit<InputLabelProps, "variant" | "inputVariant"> & {
     variant: "top" | "left";
@@ -58,6 +59,16 @@ export const Checkbox = forwardRef<CheckboxProps, "input">(function Checkbox(
 
     const gid = id ?? uid();
 
+    const classes = useClasses(start, end, className);
+
+    const iconClasses = useClasses(
+        icon.default.start,
+        icon.schemes[scheme],
+        icon.sizes[size],
+        icon.logical.states[stateKeys],
+        icon.schemeState[scheme][stateKeys],
+        icon.default.end,
+    );
     return (
         <div
             className={clsx(
@@ -70,7 +81,7 @@ export const Checkbox = forwardRef<CheckboxProps, "input">(function Checkbox(
             <input
                 id={gid}
                 checked={checked}
-                className={clsx(start, end, className)}
+                className={classes}
                 type="checkbox"
                 ref={ref}
                 value={value}
@@ -86,18 +97,7 @@ export const Checkbox = forwardRef<CheckboxProps, "input">(function Checkbox(
                 }}
                 inputVariant="filled"
             >
-                <CheckIcon
-                    checked={checked}
-                    className={clsx(
-                        icon.default.start,
-                        icon.schemes[scheme],
-                        icon.sizes[size],
-                        icon.logical.states[stateKeys],
-                        icon.schemeState[scheme][stateKeys],
-                        icon.default.end,
-                    )}
-                    {...iconProps}
-                />
+                <CheckIcon checked={checked} className={iconClasses} {...iconProps} />
                 <Text>{label}</Text>
             </CheckboxLabel>
         </div>
