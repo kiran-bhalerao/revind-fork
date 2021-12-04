@@ -4,6 +4,7 @@ import { HiddenOptions } from "@revind/types";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import { useClasses } from "hooks/useClasses";
+import { ComponentIds } from "utils/component-ids";
 
 export type HiddenProps = HTMLRevindProps<"div"> & HiddenOptions;
 
@@ -62,6 +63,8 @@ export const Hidden = forwardRef<HiddenProps, "div">(function Hidden(
         </div>
     );
 });
+
+Hidden.id = ComponentIds.Hidden;
 
 Hidden.propTypes = {
     ...Hidden.propTypes,

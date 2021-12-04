@@ -7,6 +7,7 @@
 import { useForceUpdate } from "hooks/useForceUpdate";
 import React, { useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
+import { ComponentIds } from "utils/component-ids";
 import { createContext } from "utils/create-context";
 
 type PortalContext = HTMLDivElement | null;
@@ -171,3 +172,5 @@ Portal.defaultProps = {
 
 Portal.className = PORTAL_CLASSNAME;
 Portal.selector = PORTAL_SELECTOR;
+
+Portal.id = ComponentIds.Portal;

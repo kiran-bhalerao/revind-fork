@@ -3,6 +3,7 @@ import { InputLabelProps } from "components/Input/InputLabel";
 import { Stack, StackProps } from "components/Stack/Stack";
 import React, { FC } from "react";
 import { createContext } from "react";
+import { ComponentIds } from "utils/component-ids";
 import { HTMLRevindProps } from "utils/forward-ref";
 
 const RadioGroupContext = createContext<ReactRevindRadioGroupOptions | null>(null);
@@ -53,3 +54,5 @@ export const RadioGroup: FC<RadioGroupProps> = ({
         </RadioGroupContext.Provider>
     );
 };
+
+(RadioGroup as any).id = ComponentIds.RadioGroup;

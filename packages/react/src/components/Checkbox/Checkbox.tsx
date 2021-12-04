@@ -11,6 +11,7 @@ import {
 } from "components/Input/InputLabel";
 import { Text } from "components/Text/Text";
 import { useClasses } from "hooks/useClasses";
+import { ComponentIds } from "utils/component-ids";
 
 export type CheckboxLabelProps = Omit<InputLabelProps, "variant" | "inputVariant"> & {
     variant: "top" | "left";
@@ -126,6 +127,8 @@ function CheckIcon({ checked, ...props }: CheckedIconProps): ReactElement {
         </svg>
     );
 }
+
+Checkbox.id = ComponentIds.Checkbox;
 
 Checkbox.propTypes = {
     ...Checkbox.propTypes,

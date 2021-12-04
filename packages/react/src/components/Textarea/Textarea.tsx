@@ -1,14 +1,8 @@
-import React, {
-    FormEvent,
-    forwardRef,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
-} from "react";
+import React, { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Input, ReactRevindInputOptions } from "components/Input/Input";
-import { HTMLRevindProps } from "utils/forward-ref";
+import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
+import { ComponentIds } from "utils/component-ids";
 
 /**
  * This component is heavily under development. It has many bugs
@@ -34,7 +28,7 @@ export interface TextareaProps
     "max-rows"?: number;
 }
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function Textarea(
+export const Textarea = forwardRef<TextareaProps, "textarea">(function Textarea(
     { "min-rows": minRows, "max-rows": maxRows, onInput, rows, size, ...props },
     ref,
 ) {
@@ -101,6 +95,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
         />
     );
 });
+
+Textarea.id = ComponentIds.Textarea;
 
 Textarea.propTypes = {
     ...Textarea.propTypes,

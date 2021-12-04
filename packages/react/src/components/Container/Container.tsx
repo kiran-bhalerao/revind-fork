@@ -4,6 +4,7 @@ import { ContainerOptions } from "@revind/types";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import { useClasses } from "hooks/useClasses";
+import { ComponentIds } from "utils/component-ids";
 
 export type ContainerProps = HTMLRevindProps<"div"> & ContainerOptions;
 
@@ -67,6 +68,8 @@ export const Container = forwardRef<ContainerProps, "div">(function Container(
         </div>
     );
 });
+
+Container.id = ComponentIds.Container;
 
 Container.propTypes = {
     ...Container.propTypes,

@@ -4,6 +4,7 @@ import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { TextOptions } from "@revind/types";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import { useClasses } from "hooks/useClasses";
+import { ComponentIds } from "utils/component-ids";
 
 export type TextElement = "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export type TextProps = HTMLRevindProps<TextElement> & TextOptions;
@@ -66,6 +67,8 @@ export const Text = forwardRef<TextProps, TextElement>(function Text(
         </Component>
     );
 });
+
+Text.id = ComponentIds.Text;
 
 Text.propTypes = {
     ...Text.propTypes,

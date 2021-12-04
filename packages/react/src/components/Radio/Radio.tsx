@@ -7,6 +7,7 @@ import { useStyleConfig } from "hooks/useStyleConfig";
 import { uid } from "utils/uid";
 import { Text } from "components/Text/Text";
 import { useRadioGroupContext } from "main";
+import { ComponentIds } from "utils/component-ids";
 
 export type ReactRevindRadioOptions = RadioOptions<
     HTMLRevindProps<"div">,
@@ -61,10 +62,9 @@ export const Radio = forwardRef<RadioProps, "input">(function Radio(
     );
     const id = props.id ?? uid();
 
-    const freshProps = {
+    const { styleObj: _styleObj, ...freshProps } = {
         ...props,
         scheme: undefined,
-        styleObj: undefined,
         "label-props": undefined,
         "wrapper-props": undefined,
         size: undefined,
@@ -103,3 +103,5 @@ export const Radio = forwardRef<RadioProps, "input">(function Radio(
         </div>
     );
 });
+
+Radio.id = ComponentIds.Radio;

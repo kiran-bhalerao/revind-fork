@@ -5,6 +5,7 @@ import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { ButtonOptions } from "@revind/types";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import { useClasses } from "hooks/useClasses";
+import { ComponentIds } from "utils/component-ids";
 
 export type ReactRevindButtonOptions = ButtonOptions<ReactNode>;
 
@@ -72,6 +73,8 @@ export const Button = forwardRef<ButtonProps, "button">(function Button(
         </Component>
     );
 });
+
+Button.id = ComponentIds.Button;
 
 Button.propTypes = {
     ...Button.propTypes,

@@ -6,6 +6,7 @@ import { isFragment } from "react-is";
 import { Flex } from "components/Flex/Flex";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
+import { ComponentIds } from "utils/component-ids";
 
 export type ReactRevindButtonGroupOptions = ButtonGroupOptions<ReactNode>;
 
@@ -71,6 +72,8 @@ export const ButtonGroup = forwardRef<ButtonGroupProps, "div">(function ButtonGr
         </Flex>
     );
 });
+
+ButtonGroup.id = ComponentIds.ButtonGroup;
 
 ButtonGroup.propTypes = {
     "full-width": PropTypes.bool,

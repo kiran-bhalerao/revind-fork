@@ -4,6 +4,7 @@ import { forwardRef, HTMLRevindProps } from "utils/forward-ref";
 import { FlexOptions } from "@revind/types";
 import { useStyleConfig } from "hooks/useStyleConfig";
 import { useClasses } from "hooks/useClasses";
+import { ComponentIds } from "utils/component-ids";
 
 export type FlexProps = HTMLRevindProps<"div"> & FlexOptions;
 
@@ -53,6 +54,8 @@ export const Flex = forwardRef<FlexProps, "div">(function Flex(
         </div>
     );
 });
+
+Flex.id = ComponentIds.Flex;
 
 export const flexProps = {
     direction: PropTypes.oneOf<FlexProps["direction"]>([
