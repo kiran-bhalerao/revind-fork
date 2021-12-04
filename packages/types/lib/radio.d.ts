@@ -18,7 +18,7 @@ export type RadioStyleObject = BaseStyleObj<unknown> &
         input?: string;
         wrapper?: Pick<BaseStyleObj, "default">;
     }> &
-    Conditionals<"error">;
+    Conditionals<"error" | "disabled">;
 
 export interface RadioGroupOptions<W, L>
     extends Omit<RadioOptions<W, L>, "checked" | "label" | "styleObj"> {

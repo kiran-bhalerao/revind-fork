@@ -10,7 +10,7 @@
     "license": "MIT",
     "main": "lib/index.js",
     "files": [
-      "lib"
+        "lib"
     ],
     "repository": {
         "type": "git",
@@ -20,6 +20,6 @@
         "url": "https://github.com/FotieMConstant/revind/issues"
     },
     "peerDependencies": {
-        "tailwindcss": "^2.2.4"
+        "tailwindcss": "^2.2.19"
     }
 }

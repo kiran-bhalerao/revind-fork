@@ -8,7 +8,7 @@
     "peerDependencies": {
         "@revind/styles": "^0.0.1",
         "@revind/tailwindcss-preset-revind": "^0.0.1",
-        "tailwindcss": "^2.2.4",
+        "tailwindcss": "^2.2.19",
         "vue": "^3.0.5"
     },
     "peerDependenciesMeta": {

@@ -18,6 +18,9 @@ export default {
         error: {
             type: "boolean",
         },
+        disabled: {
+            type: "boolean",
+        },
     },
 } as Meta<ReactRevindRadioOptions>;
 

@@ -50,6 +50,7 @@ export const Radio = forwardRef<RadioProps, "input">(function Radio(
         (variants as any)[variant as keyof typeof variants],
         sizes[size],
         { [conditionals.error]: error },
+        { [conditionals.disabled]: props.disabled },
         end,
         className,
     );

@@ -3,7 +3,7 @@ import { checkboxStyleObj } from "./checkbox";
 
 export const radioStyleObject: RadioStyleObject = {
     default: {
-        start: "transition-all rounded-[50%] border border-solid active:ring peer-focus:ring-2 peer-focus:ring-opacity-50 dark:peer-focus:ring-opacity-25 border-gray-600 dark:border-gray-300 m-1 mb-2",
+        start: "transition-all rounded-[50%] border border-solid active:ring peer-focus:ring-2 peer-focus:ring-opacity-50 dark:peer-focus:ring-opacity-25 border-gray-600 dark:border-gray-300 bg-gray-100 dark:bg-gray-600 m-1 mb-2",
     },
     variants: {},
     schemes: {
@@ -41,5 +41,7 @@ export const radioStyleObject: RadioStyleObject = {
     },
     conditionals: {
         error: "border-red dark:border-red-dark",
+        disabled:
+            "border-gray-300 bg-gray-200 dark:bg-gray-200 dark:peer-checked:border-gray-200 peer-checked:bg-gray-600 dark:peer-checked:bg-gray-600 peer-checked:border-gray-300 peer-checked:ring-0 active:ring-0 peer-focus:ring-0",
     },
 };
