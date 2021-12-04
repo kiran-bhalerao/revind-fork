@@ -9,5 +9,7 @@ export * from "./components/Input/InputAddon";
 export * from "./components/Input/InputElement";
 export * from "./components/Input/InputLabel";
 export * from "./components/Portal/Portal";
+export * from "./components/Radio/Radio";
+export * from "./components/Radio/RadioGroup";
 export * from "./components/Stack/Stack";
 export * from "./components/Text/Text";

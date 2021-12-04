@@ -13,6 +13,7 @@ import {
     inputGroupStyleObj,
     stackStyleObj,
     inputElementStyleObj,
+    radioStyleObject,
 } from "@revind/styles";
 import {
     ButtonGroupStyleObj,
@@ -37,13 +38,14 @@ import {
     StackOptions,
     InputElementStyleObj,
     InputElementOptions,
+    RadioStyleObject,
+    RadioOptions,
 } from "@revind/types";
 import { ReactRevindButtonOptions } from "components/Button/Button";
-import {
-    ReactRevindButtonGroupOptions,
-    ReactRevindInputOptions,
-    ReactRevindCheckboxOptions,
-} from "main";
+import { ReactRevindButtonGroupOptions } from "components/ButtonGroup/ButtonGroup";
+import { ReactRevindCheckboxOptions } from "components/Checkbox/Checkbox";
+import { ReactRevindInputOptions } from "components/Input/Input";
+import { ReactRevindRadioOptions } from "components/Radio/Radio";
 
 export interface ThemeContext {
     styleObjects: {
@@ -60,6 +62,7 @@ export interface ThemeContext {
         InputGroup: InputGroupStyleObj;
         Text: TextStyleObj;
         Stack: StackStyleObj;
+        Radio: RadioStyleObject;
     };
     props: {
         Button?: ReactRevindButtonOptions;
@@ -75,6 +78,7 @@ export interface ThemeContext {
         InputLabel?: InputLabelOptions;
         Text?: TextOptions;
         Stack?: StackOptions<React.ReactElement>;
+        Radio?: ReactRevindRadioOptions;
     };
 }
 
@@ -93,6 +97,7 @@ export const defaultTheme: ThemeContext = {
         InputGroup: inputGroupStyleObj,
         Text: textStyleObj,
         Stack: stackStyleObj,
+        Radio: radioStyleObject,
     },
     props: {},
 };
