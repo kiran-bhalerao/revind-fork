@@ -3,11 +3,10 @@
     "version": "0.0.1",
     "scripts": {
         "start": "BROWSER=none start-storybook -p 6006",
-        "build": "build-storybook"
+        "build-storybook": "build-storybook"
     },
     "peerDependencies": {
         "@revind/styles": "^0.0.1",
-        "@revind/tailwindcss-preset-revind": "^0.0.1",
         "prop-types": "^15.7.2",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
@@ -27,6 +26,7 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "@revind/tailwindcss-preset-revind": "*",
         "@babel/core": "^7.14.6",
         "@storybook/addon-essentials": "^6.4.5",
         "@storybook/addon-links": "^6.4.5",
@@ -51,13 +51,13 @@
         "tailwindcss",
         "revind"
     ],
-    "homepage": "https://github.com/FotieMConstant/revind/tree/main/packages/react#readme",
+    "homepage": "https://github.com/revindjs/revind/tree/main/packages/react#readme",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FotieMConstant/revind.git"
+        "url": "git+https://github.com/revindjs/revind.git"
     },
     "bugs": {
-        "url": "https://github.com/FotieMConstant/revind/issues"
+        "url": "https://github.com/revindjs/revind/issues"
     },
     "license": "MIT"
 }

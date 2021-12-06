@@ -10,16 +10,16 @@
         "react",
         "vue"
     ],
-    "homepage": "https://github.com/FotieMConstant/revind/tree/main/packages/types#readme",
+    "homepage": "https://github.com/revindjs/revind/tree/main/packages/types#readme",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FotieMConstant/revind.git"
+        "url": "git+https://github.com/revindjs/revind.git"
     },
     "scripts": {
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "bugs": {
-        "url": "https://github.com/FotieMConstant/revind/issues"
+        "url": "https://github.com/revindjs/revind/issues"
     }
 }

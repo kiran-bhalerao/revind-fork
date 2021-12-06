@@ -14,13 +14,13 @@
         "revind",
         "style-objects"
     ],
-    "homepage": "https://github.com/FotieMConstant/revind/tree/main/packages/styles#readme",
+    "homepage": "https://github.com/revindjs/revind/tree/main/packages/styles#readme",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FotieMConstant/revind.git"
+        "url": "git+https://github.com/revindjs/revind.git"
     },
     "bugs": {
-        "url": "https://github.com/FotieMConstant/revind/issues"
+        "url": "https://github.com/revindjs/revind/issues"
     },
     "scripts": {
         "start": "tsc -w",

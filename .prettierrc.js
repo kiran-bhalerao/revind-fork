@@ -7,5 +7,6 @@ const config = {
     semi: true,
     endOfLine: "auto",
     trailingComma: "all",
+    vueIndentScriptAndStyle: true,
 };
 module.exports = config;

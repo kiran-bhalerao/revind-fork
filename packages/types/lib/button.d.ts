@@ -49,7 +49,7 @@ export interface ButtonOptions<I> {
      */
     rounded?: boolean;
 
-    styleObj?: Partial<ButtonStyleObj>
+    styleObj?: Partial<ButtonStyleObj>;
 }
 
 export type ButtonSubComponents = Junction<

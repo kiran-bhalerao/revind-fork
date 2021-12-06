@@ -17,7 +17,7 @@
         "vue": "npm -w packages/vue run --",
         "styles": "npm -w packages/styles run --"
     },
-    "repository": "git+https://github.com/FotieMConstant/revind.git",
+    "repository": "git+https://github.com/revindjs/revind.git",
     "engines": {
         "node": ">=12.0.0"
     },
@@ -34,19 +34,23 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/FotieMConstant/revind/issues"
+        "url": "https://github.com/revindjs/revind/issues"
     },
-    "homepage": "https://github.com/FotieMConstant/revind#readme",
+    "homepage": "https://github.com/revindjs/revind#readme",
     "devDependencies": {
-        "@types/eslint": "^7.2.13",
-        "@types/tailwindcss": "^2.2.19",
-        "eslint": "^7.28.0",
+        "@types/eslint": "^8.2.1",
+        "@types/tailwindcss": "^2.2.4",
+        "@typescript-eslint/eslint-plugin": "^5.5.0",
+        "@typescript-eslint/parser": "^5.5.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "@vue/eslint-config-typescript": "^9.1.0",
+        "eslint": "^8.4.0",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-prettier": "^3.4.1",
         "eslint-plugin-react": "^7.24.0",
-        "eslint-plugin-vue": "^7.10.0",
+        "eslint-plugin-vue": "^8.2.0",
         "lerna": "^4.0.0",
-        "prettier": "2.3.1"
+        "prettier": "^2.3.1"
     },
     "private": true
 }

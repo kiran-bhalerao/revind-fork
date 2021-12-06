@@ -1,12 +1,12 @@
 {
     "name": "@revind/tailwindcss-preset-revind",
     "version": "0.0.1",
-    "description": "revind's default tailwindcss config",
+    "description": "Revind's default tailwindcss config",
     "keywords": [
         "tailwindcss",
         "revind"
     ],
-    "homepage": "https://github.com/FotieMConstant/revind/tree/main/packages/tailwindcss-preset-revind#readme",
+    "homepage": "https://github.com/revindjs/revind/tree/main/packages/tailwindcss-preset-revind#readme",
     "license": "MIT",
     "main": "lib/index.js",
     "files": [
@@ -14,10 +14,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FotieMConstant/revind.git"
+        "url": "git+https://github.com/revindjs/revind.git"
     },
     "bugs": {
-        "url": "https://github.com/FotieMConstant/revind/issues"
+        "url": "https://github.com/revindjs/revind/issues"
     },
     "peerDependencies": {
         "tailwindcss": "^2.2.19"
