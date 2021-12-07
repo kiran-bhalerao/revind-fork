@@ -1,11 +1,23 @@
 <script lang="ts">
-    import { buttonStyleObj } from "@revind/styles";
     import { useClasses } from "../../hooks/useClasses";
     import { defineComponent } from "vue";
-    import { ButtonProps } from "./Button";
+    import { useStyleConfig, VueRevindProps } from "../../hooks/useStyleConfig";
+    import { ButtonOptions } from "@revind/types";
+    import { RequiredKey } from "../../types";
+
+    export type VueRevindButtonOptions = Omit<
+        ButtonOptions<unknown>,
+        "start-icon" | "end-icon"
+    >;
+
+    export type ButtonProps = RequiredKey<
+        VueRevindButtonOptions,
+        "scheme" | "size" | "variant"
+    > &
+        VueRevindProps;
 
     export default defineComponent({
-        name: "Button",
+        name: "RButton",
         props: {
             "full-width": Boolean,
             margin: Boolean,
@@ -14,6 +26,7 @@
             size: { type: String, default: "md" },
             variant: { type: String, default: "filled" },
             styleObj: Object,
+            as: { type: String, default: "button" },
         },
         setup(_props) {
             const props = _props as ButtonProps;
@@ -26,15 +39,15 @@
             const styleObj = props.styleObj;
 
             const {
+                default: { start, end },
                 sizes,
                 variantSchemes,
                 variants,
-                default: { start, end },
-                sub: { startIcon: startIconStyle, endIcon: endIconStyle },
                 schemes,
-                conditionals: { fullWidth, margin, rounded },
                 variantSizes,
-            } = buttonStyleObj;
+                sub: { startIcon, endIcon },
+                conditionals: { fullWidth, margin, rounded },
+            } = useStyleConfig("Button", styleObj);
 
             const classes = useClasses(
                 start,
@@ -51,11 +64,8 @@
                 end,
             );
 
-            const startIconClasses = [
-                startIconStyle.default.start,
-                startIconStyle.default.end,
-            ];
-            const endIconClasses = [endIconStyle.default.start, endIconStyle.default.end];
+            const startIconClasses = [startIcon.default.start, startIcon.default.end];
+            const endIconClasses = [endIcon.default.start, endIcon.default.end];
             return {
                 classes,
                 startIconClasses,
@@ -66,9 +76,9 @@
 </script>
 
 <template>
-    <button :class="classes">
+    <component :is="$props.as" :class="classes">
         <slot name="startIcon" :class="startIconClasses"> </slot>
         <slot></slot>
         <slot name="endIcon" :class="endIconClasses"> </slot>
-    </button>
+    </component>
 </template>

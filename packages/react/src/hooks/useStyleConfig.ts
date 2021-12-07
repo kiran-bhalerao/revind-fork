@@ -5,10 +5,9 @@ import { useTheme } from "./useTheme";
 
 export type ThemeKeys = keyof ThemeContext["styleObjects"];
 
-export function useStyleConfig<S>(
-    themeKey: ThemeKeys,
-    styleObj?: S,
-): Required<S> {
+export function useStyleConfig<
+    S extends Partial<ThemeContext["styleObjects"][ThemeKeys]>,
+>(themeKey: ThemeKeys, styleObj?: S): Required<S> {
     const { styleObjects } = useTheme();
     const theme = styleObjects[themeKey] as unknown as Required<S>;
 

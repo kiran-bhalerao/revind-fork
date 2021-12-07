@@ -13,13 +13,11 @@
       "esnext",
       "dom"
     ],
-    "baseUrl": "./src",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "types": [
       "vite/client",
-      "@types/react"
     ],
     "plugins": [
       {

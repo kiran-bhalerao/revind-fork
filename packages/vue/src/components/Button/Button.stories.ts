@@ -25,7 +25,6 @@ export default {
 
 export const Default = (args: ButtonProps) => {
     return defineComponent({
-        components: { Button },
         setup() {
             return { args };
         },
@@ -33,31 +32,31 @@ export const Default = (args: ButtonProps) => {
         <div class="flex justify-around">
             <div class="flex flex-col items-center space-y-2">
                 <h5>Default</h5>
-                <Button v-bind="args">
+                <RButton v-bind="args">
                   Hello
-                </Button>
+                </RButton>
             </div>
             <div class="flex flex-col items-center space-y-2">
                 <h5>Left Icon</h5>
-                <Button v-bind="args">
+                <RButton v-bind="args">
                     <template #startIcon>&times;</template>
                     Hello
-                </Button>
+                </RButton>
             </div>
             <div class="flex flex-col items-center space-y-2">
                 <h5>Right Icon</h5>
-                <Button v-bind="args">
+                <RButton v-bind="args">
                     Hello
                     <template #endIcon>&times;</template>
-                </Button>
+                </RButton>
             </div>
             <div class="flex flex-col items-center space-y-2">
                 <h5>Both Side Icon</h5>
-                <Button v-bind="args">
+                <RButton is="a" v-bind="args">
                     <template #startIcon>&times;</template>
                     Hello
                     <template #endIcon>&times;</template>
-                </Button>
+                </RButton>
             </div>
         </div>
         `,
