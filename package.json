@@ -11,11 +11,13 @@
     ],
     "scripts": {
         "bootstrap": "lerna bootstrap",
+        "postbootstrap": "rm -rf ./node_modules/@types/react && rm -rf ./packages/vue/node_modules/@types/react",
         "lint": "npx eslint src/**/*.{jsx,vue,js}",
         "new:component": "node scripts/component-gen.js",
         "react": "npm -w packages/react run --",
         "vue": "npm -w packages/vue run --",
-        "styles": "npm -w packages/styles run --"
+        "styles": "npm -w packages/styles run --",
+        "postinstall": "npm run bootstrap --hoist"
     },
     "repository": "git+https://github.com/revindjs/revind.git",
     "engines": {

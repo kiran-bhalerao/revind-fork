@@ -2,19 +2,7 @@
     import { useClasses } from "../../hooks/useClasses";
     import { defineComponent } from "vue";
     import { useStyleConfig, VueRevindProps } from "../../hooks/useStyleConfig";
-    import { ButtonOptions } from "@revind/types";
-    import { RequiredKey } from "../../types";
-
-    export type VueRevindButtonOptions = Omit<
-        ButtonOptions<unknown>,
-        "start-icon" | "end-icon"
-    >;
-
-    export type ButtonProps = RequiredKey<
-        VueRevindButtonOptions,
-        "scheme" | "size" | "variant"
-    > &
-        VueRevindProps;
+    import { ButtonProps } from "./Button";
 
     export default defineComponent({
         name: "RButton",

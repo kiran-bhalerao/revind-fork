@@ -32,6 +32,7 @@ export const Flex = forwardRef<FlexProps, "div">(function Flex(
         children,
         className,
         styleObj,
+        as: Component = "div",
         ...props
     },
     ref,
@@ -49,9 +50,9 @@ export const Flex = forwardRef<FlexProps, "div">(function Flex(
         className,
     );
     return (
-        <div ref={ref} className={classes} {...props}>
+        <Component ref={ref} className={classes} {...props}>
             {children}
-        </div>
+        </Component>
     );
 });
 
