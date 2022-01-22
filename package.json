@@ -32,9 +32,9 @@
         "ui-framework",
         "framework-agnostic"
     ],
-    "authors": [
-        "FotieMConstant",
-        "KRTirtho <krtirtho@gmail.com>"
+    "contributors": [
+      {"name": "FotieMConstant"},
+      {"name": "Kingkor Roy Tirtho", "email": "krtirtho@gmail.com"}
     ],
     "license": "MIT",
     "bugs": {

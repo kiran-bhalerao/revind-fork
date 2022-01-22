@@ -1,6 +1,6 @@
 import { ButtonOptions } from "@revind/types";
-import { VueRevindProps } from "hooks/useStyleConfig";
-import { RequiredKey } from "types";
+import { VueRevindProps } from "../../hooks/useStyleConfig";
+import { RequiredKey } from "../../types";
 
 export type VueRevindButtonOptions = Omit<
     ButtonOptions<unknown>,

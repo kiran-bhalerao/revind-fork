@@ -46,7 +46,7 @@ export const Container = forwardRef<ContainerProps, "div">(function Container(
     const classes = useClasses(
         start,
         {
-            [fixed]: fixed,
+            [fixed]: isFixed,
             [center]: isCenter,
             [gutters]: isGutters,
             [rounded]: isRounded,

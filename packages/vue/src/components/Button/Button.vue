@@ -1,7 +1,7 @@
 <script lang="ts">
     import { useClasses } from "../../hooks/useClasses";
     import { defineComponent } from "vue";
-    import { useStyleConfig, VueRevindProps } from "../../hooks/useStyleConfig";
+    import { useStyleConfig } from "../../hooks/useStyleConfig";
     import { ButtonProps } from "./Button";
 
     export default defineComponent({
