@@ -7,10 +7,28 @@ import { Text } from "components/Text/Text";
 export default {
     title: "Components/Stack",
     component: Stack,
+    argTypes: {
+        direction: {
+            control: { type: "select" },
+            options: ["column", "row", "row-reverse", "column-reverse"],
+        },
+        items: {
+            control: { type: "select" },
+            options: ["center", "start", "end", "stretch", "baseline"],
+        },
+        justify: {
+            control: { type: "select" },
+            options: ["center", "start", "end", "between", "around", "evenly"],
+        },
+        wrap: {
+            control: { type: "select" },
+            options: ["wrap", "no-wrap", "wrap-reverse"],
+        },
+    },
 } as Meta<StackProps>;
 
-export const Vertical = () => (
-    <Stack className="space-x-2">
+export const Vertical = (props: StackProps) => (
+    <Stack className="space-x-2" {...props}>
         <span>ooooooo</span>
         <span>ahhhhh</span>
         <span>Woah!</span>
@@ -29,8 +47,14 @@ function Feature({ title, children, ...rest }: any) {
     );
 }
 
-export const WithContent = () => (
-    <Stack direction="row" className="space-x-8">
+export const WithContent = (props: StackProps) => (
+    <Stack
+        direction="row"
+        spacing-horizontal="space-x-8"
+        spacing-vertical="space-y-8"
+        wrap="wrap"
+        {...props}
+    >
         <Feature
             title="Plan Money"
             children="The future can be even brighter but a goal without a plan is just a wish"

@@ -32,10 +32,21 @@ export type TailwindCSSSpacing =
     | "16"
     | "20";
 
-export type ResponsiveValue<T> =
-    | T
-    | [T | null, T | null, T | null, T | null, T | null]
-    | Record<"sm" | "md" | "lg" | "xl" | "2xl", T | null | undefined>;
+export type StackSpacingCoord<C extends "x" | "y" = "x" | "y"> = `${
+    | "sm:"
+    | "md:"
+    | "lg:"
+    | "xl:"
+    | "2xl:"
+    | ""}space-${C}-${TailwindCSSSpacing}`;
+
+export type ResponsiveObject<T> = Record<
+    "sm" | "md" | "lg" | "xl" | "2xl",
+    T | null | undefined
+>;
+export type ResponsiveTuple<T> = [T | null, T | null, T | null, T | null, T | null];
+
+export type ResponsiveValue<T> = T | ResponsiveTuple<T> | ResponsiveObject<T>;
 
 export interface StackOptions<I> {
     /**
@@ -59,6 +70,8 @@ export interface StackOptions<I> {
      * If `true` the items will be stacked horizontally.
      */
     "is-inline"?: boolean;
+    "spacing-horizontal"?: StackSpacingCoord<"x">[] | string;
+    "spacing-vertical"?: StackSpacingCoord<"y">[] | string;
     styleObj?: StackStyleObj;
 }
 
