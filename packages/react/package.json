@@ -18,6 +18,7 @@
         }
     },
     "dependencies": {
+        "@floating-ui/react-dom": "^0.4.3",
         "@revind/types": "^0.0.1",
         "clsx": "^1.1.1",
         "lodash.mergewith": "^4.6.2",
@@ -26,8 +27,8 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
-        "@revind/tailwindcss-preset-revind": "*",
         "@babel/core": "^7.14.6",
+        "@revind/tailwindcss-preset-revind": "*",
         "@storybook/addon-essentials": "^6.4.5",
         "@storybook/addon-links": "^6.4.5",
         "@storybook/addon-postcss": "^2.0.0",

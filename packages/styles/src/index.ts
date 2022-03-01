@@ -9,6 +9,7 @@ export * from "./input-addon";
 export * from "./input-element";
 export * from "./input-group";
 export * from "./input-label";
+export * from "./popover";
 export * from "./radio";
 export * from "./stack";
 export * from "./text";
